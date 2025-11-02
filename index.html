@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Jeu interactif - Appartement</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background-color: #f0f0f0;
+    }
+
+    #game-container {
+      position: relative;
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    img {
+      width: 600px;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    /* Zones cliquables */
+    .click-zone {
+      position: absolute;
+      cursor: pointer;
+      background-color: rgba(255, 0, 0, 0.2); /* visible pour test, tu pourras la rendre invisible */
+    }
+
+    /* Boîte de dialogue */
+    #message-box {
+      margin-top: 20px;
+      background: white;
+      border: 1px solid #ccc;
+      padding: 10px;
+      display: inline-block;
+      border-radius: 6px;
+      min-width: 200px;
+    }
+
+    /* Boutons de navigation */
+    .nav-buttons {
+      margin-top: 20px;
+    }
+
+    button {
+      margin: 5px;
+      padding: 8px 15px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Jeu interactif - Appartement</h1>
+
+  <div id="game-container">
+    <!-- Image principale -->
+    <img id="room-image" src="cuisine.jpg" alt="Pièce actuelle">
+
+    <!-- Zones cliquables pour la cuisine -->
+    <div class="click-zone" id="evier" style="top: 60%; left: 40%; width: 100px; height: 50px;" 
+         onclick="showMessage('L’indice que tu cherches n’est pas dans l’évier !')"></div>
+
+    <!-- Zones cliquables pour le salon (cachées au départ) -->
+    <div class="click-zone" id="canape" style="top: 70%; left: 30%; width: 150px; height: 60px; display: none;"
+         onclick="showMessage('Le canapé est vide… mais tu peux t’y reposer !')"></div>
+  </div>
+
+  <div id="message-box">Clique sur un objet pour voir un message.</div>
+
+  <div class="nav-buttons">
+    <button onclick="changeRoom('cuisine')">Cuisine</button>
+    <button onclick="changeRoom('salon')">Salon</button>
+  </div>
+
+  <script>
+    let currentRoom = 'cuisine';
+
+    function showMessage(message) {
+      document.getElementById('message-box').textContent = message;
+    }
+
+    function changeRoom(room) {
+      currentRoom = room;
+      const roomImage = document.getElementById('room-image');
+      const evier = document.getElementById('evier');
+      const canape = document.getElementById('canape');
+
+      if (room === 'cuisine') {
+        roomImage.src = 'cuisine.jpg';
+        evier.style.display = 'block';
+        canape.style.display = 'none';
+        showMessage("Te voilà dans la cuisine !");
+      } else if (room === 'salon') {
+        roomImage.src = 'salon.jpg';
+        evier.style.display = 'none';
+        canape.style.display = 'block';
+        showMessage("Bienvenue dans le salon !");
+      }
+    }
+  </script>
+
+</body>
+</html>
