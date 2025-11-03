@@ -24,14 +24,12 @@
       border-radius: 10px;
     }
 
-    /* Zones cliquables */
     .click-zone {
       position: absolute;
       cursor: pointer;
-      background-color: rgba(255, 0, 0, 0.2); /* visible pour test, tu pourras la rendre invisible */
+      background-color: rgba(255, 0, 0, 0.2); /* laisse visible pour les tests */
     }
 
-    /* Boîte de dialogue */
     #message-box {
       margin-top: 20px;
       background: white;
@@ -42,7 +40,6 @@
       min-width: 200px;
     }
 
-    /* Boutons de navigation */
     .nav-buttons {
       margin-top: 20px;
     }
@@ -59,15 +56,16 @@
   <h1>Jeu interactif - Appartement</h1>
 
   <div id="game-container">
-    <!-- Image principale -->
     <img id="room-image" src="cuisine.jpg" alt="Pièce actuelle">
 
     <!-- Zones cliquables pour la cuisine -->
-    <div class="click-zone" id="evier" style="top: 60%; left: 40%; width: 100px; height: 50px;" 
-         onclick="showMessage('L’indice que tu cherches n’est pas dans l’évier !')"></div>
+    <div class="click-zone" id="evier"
+         style="top: 60%; left: 40%; width: 100px; height: 50px;"
+         onclick="showDetail('chambre.jpg')"></div>
 
-    <!-- Zones cliquables pour le salon (cachées au départ) -->
-    <div class="click-zone" id="canape" style="top: 70%; left: 30%; width: 150px; height: 60px; display: none;"
+    <!-- Zones cliquables pour le salon -->
+    <div class="click-zone" id="canape"
+         style="top: 70%; left: 30%; width: 150px; height: 60px; display: none;"
          onclick="showMessage('Le canapé est vide… mais tu peux t’y reposer !')"></div>
   </div>
 
@@ -76,6 +74,7 @@
   <div class="nav-buttons">
     <button onclick="changeRoom('cuisine')">Cuisine</button>
     <button onclick="changeRoom('salon')">Salon</button>
+    <button id="retour-btn" style="display: none;" onclick="changeRoom('cuisine')">Retour</button>
   </div>
 
   <script>
@@ -86,22 +85,40 @@
     }
 
     function changeRoom(room) {
-      currentRoom = room;
       const roomImage = document.getElementById('room-image');
       const evier = document.getElementById('evier');
       const canape = document.getElementById('canape');
+      const retourBtn = document.getElementById('retour-btn');
+
+      currentRoom = room;
 
       if (room === 'cuisine') {
         roomImage.src = 'cuisine.jpg';
         evier.style.display = 'block';
         canape.style.display = 'none';
+        retourBtn.style.display = 'none';
         showMessage("Te voilà dans la cuisine !");
       } else if (room === 'salon') {
         roomImage.src = 'salon.jpg';
         evier.style.display = 'none';
         canape.style.display = 'block';
+        retourBtn.style.display = 'none';
         showMessage("Bienvenue dans le salon !");
       }
+    }
+
+    // Nouvelle fonction : afficher une image de détail (ex. chambre)
+    function showDetail(imageName) {
+      const roomImage = document.getElementById('room-image');
+      const evier = document.getElementById('evier');
+      const canape = document.getElementById('canape');
+      const retourBtn = document.getElementById('retour-btn');
+
+      roomImage.src = imageName;
+      evier.style.display = 'none';
+      canape.style.display = 'none';
+      retourBtn.style.display = 'inline-block';
+      showMessage("Tu es passé dans une autre pièce...");
     }
   </script>
 
