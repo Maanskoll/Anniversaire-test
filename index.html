@@ -56,7 +56,7 @@
   <h1>Jeu interactif - Appartement</h1>
 
   <div id="game-container">
-    <img id="room-image" src="cuisine.jpg" alt="Pièce actuelle">
+    <img id="room-image" src="Cuisine.jpg" alt="Pièce actuelle">
 
     <!-- Zones cliquables pour la cuisine -->
     <div class="click-zone" id="evier"
@@ -73,8 +73,12 @@
 
   <div class="nav-buttons">
     <button onclick="changeRoom('cuisine')">Cuisine</button>
+    <button onclick="changeRoom('coin_manger')">Coin manger</button>
     <button onclick="changeRoom('salon')">Salon</button>
-    <button id="retour-btn" style="display: none;" onclick="changeRoom('cuisine')">Retour</button>
+    <button onclick="changeRoom('salon2')">Salon 2</button>
+    <button onclick="changeRoom('chambre')">Chambre</button>
+    <button onclick="changeRoom('salle_de_bain')">Salle de bain</button>
+    <button id="retour-btn" style="display: none;" onclick="changeRoom('Salon')">Retour</button>
   </div>
 
   <script>
@@ -99,13 +103,38 @@
         retourBtn.style.display = 'none';
         showMessage("Te voilà dans la cuisine !");
       } else if (room === 'salon') {
-        roomImage.src = 'salon.jpg';
+        roomImage.src = 'Salon.jpg';
         evier.style.display = 'none';
         canape.style.display = 'block';
         retourBtn.style.display = 'none';
         showMessage("Bienvenue dans le salon !");
-      }
+      } else if (room === 'coin_manger') {
+        roomImage.src = 'coin_manger.jpg';
+        evier.style.display = 'none';
+        canape.style.display = 'none';
+        retourBtn.style.display = 'none';
+        showMessage("Tu es dans le coin manger !");
+      } else if (room === 'salon2') {
+        roomImage.src = 'salon2.jpg';
+        evier.style.display = 'none';
+        canape.style.display = 'none';
+        retourBtn.style.display = 'none';
+        showMessage("Tu explores la deuxième partie du salon !");
+      } else if (room === 'chambre') {
+        roomImage.src = 'chambre.jpg';
+        evier.style.display = 'none';
+        canape.style.display = 'none';
+        retourBtn.style.display = 'none';
+        showMessage("Bienvenue dans la chambre !");
+      } else if (room === 'salle_de_bain') {
+        roomImage.src = 'salle_de_bain.jpg';
+        evier.style.display = 'none';
+        canape.style.display = 'none';
+        retourBtn.style.display = 'none';
+        showMessage("C’est la salle de bain, attention de ne pas glisser !");
+      }  
     }
+    
 
     // Nouvelle fonction : afficher une image de détail (ex. Chambre)
     function showDetail(imageName) {
