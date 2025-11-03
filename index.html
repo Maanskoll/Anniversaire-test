@@ -72,17 +72,17 @@
   <div id="message-box">Clique sur un objet pour voir un message.</div>
 
   <div class="nav-buttons">
-    <button onclick="changeRoom('cuisine')">Cuisine</button>
-    <button onclick="changeRoom('coinmanger')">Coin manger</button>
-    <button onclick="changeRoom('salon')">Salon</button>
+    <button onclick="changeRoom('Cuisine')">Cuisine</button>
+    <button onclick="changeRoom('Coinmanger')">Coin manger</button>
+    <button onclick="changeRoom('Salon')">Salon</button>
     <button onclick="changeRoom('Biblio')">Biblio</button>
-    <button onclick="changeRoom('chambre')">Chambre</button>
-    <button onclick="changeRoom('salledebain')">Salle de bain</button>
+    <button onclick="changeRoom('Chambre')">Chambre</button>
+    <button onclick="changeRoom('Salledebain')">Salle de bain</button>
     <button id="retour-btn" style="display: none;" onclick="changeRoom('Salon')">Retour</button>
   </div>
 
   <script>
-    let currentRoom = 'cuisine';
+    let currentRoom = 'Cuisine';
 
     function showMessage(message) {
       document.getElementById('message-box').textContent = message;
