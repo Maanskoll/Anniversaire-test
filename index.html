@@ -112,9 +112,12 @@
 
     function changeRoom(room) {
       const roomImage = document.getElementById('room-image');
+      const evier = document.getElementById('tablette');
+      const evier = document.getElementById('plaques');
       const evier = document.getElementById('evier');
-      const canape = document.getElementById('frigo');
       const canape = document.getElementById('bouteille');
+      const canape = document.getElementById('frigo');
+      const evier = document.getElementById('canape');
       const retourBtn = document.getElementById('retour-btn');
      
       // On cache toutes les zones à chaque changement
@@ -124,6 +127,8 @@
         roomImage.src = 'Cuisine.jpg';
         evier.style.display = 'block';
         bouteille.style.display = 'block';
+        tablette.style.display = 'block';
+        plaques.style.display = 'block';
         frigo.style.display = 'block';
         canape.style.display = 'none';
         retourBtn.style.display = 'none';
@@ -132,24 +137,49 @@
         roomImage.src = 'Salon.jpg';
         evier.style.display = 'none';
         bouteille.style.display = 'none';
+        tablette.style.display = 'none';
+        plaques.style.display = 'none';
         frigo.style.display = 'none';
         canape.style.display = 'block';
         retourBtn.style.display = 'none';
         showMessage("Bienvenue dans le salon !");
       } else if (room === 'Coinmanger') {
-        roomImage.src = 'Coinmanger.jpg';
+        evier.style.display = 'none';
+        bouteille.style.display = 'none';
+        tablette.style.display = 'none';
+        plaques.style.display = 'none';
+        frigo.style.display = 'none';
+        canape.style.display = 'none';
         retourBtn.style.display = 'none';
         showMessage("Tu es dans le coin manger !");
       } else if (room === 'Biblio') {
         roomImage.src = 'Biblio.jpg';
+        evier.style.display = 'none';
+        bouteille.style.display = 'none';
+        tablette.style.display = 'none';
+        plaques.style.display = 'none';
+        frigo.style.display = 'none';
+        canape.style.display = 'none';
         retourBtn.style.display = 'none';
         showMessage("Tu explores la deuxième partie du salon !");
       } else if (room === 'Chambre') {
         roomImage.src = 'Chambre.jpg';
+        evier.style.display = 'none';
+        bouteille.style.display = 'none';
+        tablette.style.display = 'none';
+        plaques.style.display = 'none';
+        frigo.style.display = 'none';
+        canape.style.display = 'none';
         retourBtn.style.display = 'none';
         showMessage("Bienvenue dans la chambre !");
       } else if (room === 'Salledebain') {
         roomImage.src = 'Salledebain.jpg';
+        evier.style.display = 'none';
+        bouteille.style.display = 'none';
+        tablette.style.display = 'none';
+        plaques.style.display = 'none';
+        frigo.style.display = 'none';
+        canape.style.display = 'none';
         retourBtn.style.display = 'none';
         showMessage("C’est la salle de bain, attention de ne pas glisser !");
       }  
@@ -161,11 +191,19 @@
       const roomImage = document.getElementById('room-image');
       const evier = document.getElementById('evier');
       const canape = document.getElementById('canape');
+      const plaques = document.getElementById('plaques');
+      const bouteille = document.getElementById('bouteille');
+      const tablette = document.getElementById('tablette');
+      const frigo = document.getElementById('frigo');
       const retourBtn = document.getElementById('retour-btn');
 
       roomImage.src = imageName;
       evier.style.display = 'none';
       canape.style.display = 'none';
+      plaques.style.display = 'none';
+      bouteille.style.display = 'none';
+      tablette.style.display = 'none';
+      frigo.style.display = 'none';
       retourBtn.style.display = 'inline-block';
       showMessage("Tu es passé dans une autre pièce...");
     }
