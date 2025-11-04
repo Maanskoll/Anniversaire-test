@@ -112,7 +112,10 @@
     }
 
     function changeRoom(room) {
+      currentRoom = room;
       const roomImage = document.getElementById('room-image');
+      const evier = document.getElementById('evier');
+      const canape = document.getElementById('canape');
       const retourBtn = document.getElementById('retour-btn');
      
       // On cache toutes les zones à chaque changement
@@ -127,11 +130,15 @@
 
       if (room === 'Cuisine') {
         roomImage.src = 'Cuisine.jpg';
+        evier.style.display = 'block';
+        canape.style.display = 'none';
         document.getElementById('zones-cuisine').style.display = 'block';
         retourBtn.style.display = 'none';
         showMessage("Te voilà dans la cuisine !");
       } else if (room === 'Salon') {
         roomImage.src = 'Salon.jpg';
+        evier.style.display = 'none';
+        canape.style.display = 'block';
         document.getElementById('zones-salon').style.display = 'block';
         retourBtn.style.display = 'none';
         showMessage("Bienvenue dans le salon !");
