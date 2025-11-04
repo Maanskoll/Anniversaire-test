@@ -90,7 +90,7 @@
          onclick="showMessage('Le canapé est vide… mais tu peux t’y reposer !')"></div>
   </div>
  
-  <div id="message-box">Clique sur un objet pour voir un message.</div>
+  <div id="message-box">Voici la cuisine!.</div>
 
   <div class="nav-buttons">
     <button onclick="changeRoom('Cuisine')">Cuisine</button>
@@ -178,7 +178,18 @@
     
 
     // Nouvelle fonction : afficher une image de détail (ex. Chambre)
+    function showDetail(imageName) {
+      const roomImage = document.getElementById('room-image');
+      const evier = document.getElementById('evier');
+      const canape = document.getElementById('canape');
+      const retourBtn = document.getElementById('retour-btn');
 
+      roomImage.src = imageName;
+      evier.style.display = 'none';
+      canape.style.display = 'none';
+      retourBtn.style.display = 'inline-block';
+      showMessage("Tu es passé dans une autre pièce...");
+    }
   </script>
 
 </body>
