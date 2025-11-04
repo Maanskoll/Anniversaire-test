@@ -73,7 +73,7 @@
 
     <div class="click-zone" id="bouteille"
          style="top: 40%; left: 37%; width: 40px; height: 100px;"
-         onclick="showMessage('Celle de l\'anniversaire, quand est-ce qu\'on la boit ?'')"></div>
+         onclick="showMessage('Celle de l\'anniversaire, quand est-ce qu\'on la boit ?')"></div>
     
     <div class="click-zone" id="bouteille de rhum"
          style="top: 40%; left: 39%; width: 20px; height: 100px"
@@ -84,7 +84,7 @@
          onclick="showMessage('Le frigo est fermé, pas d\'indice')"></div> 
 
     <!-- Zones cliquables pour le salon -->
-  <div id="zones-salon">
+  <div id="zones-salon"> style="display:none;">
     <div class="click-zone" id="canape"
          style="top: 70%; left: 30%; width: 150px; height: 60px; display: none;"
          onclick="showMessage('Le canapé est vide… mais tu peux t’y reposer !')"></div>
@@ -102,93 +102,41 @@
   </div>
 
   <script>
-    let currentRoom = 'Cuisine';
-
     function showMessage(message) {
       document.getElementById('message-box').textContent = message;
     }
 
     function changeRoom(room) {
       const roomImage = document.getElementById('room-image');
-      const evier = document.getElementById('tablette');
-      const evier = document.getElementById('plaques');
-      const evier = document.getElementById('evier');
-      const canape = document.getElementById('bouteille');
-      const canape = document.getElementById('frigo');
-      const evier = document.getElementById('canape');
-      
+
       // On cache toutes les zones à chaque changement
+      document.getElementById('zones-cuisine').style.display = 'none';
+      document.getElementById('zones-salon').style.display = 'none';
+      // (tu ajouteras ici zones-coinmanger, zones-biblio, etc. quand tu les créeras)
+      
       currentRoom = room;
 
       if (room === 'Cuisine') {
         roomImage.src = 'Cuisine.jpg';
-        evier.style.display = 'block';
-        bouteille.style.display = 'block';
-        tablette.style.display = 'block';
-        plaques.style.display = 'block';
-        frigo.style.display = 'block';
-        canape.style.display = 'none';
+        document.getElementById('zones-cuisine').style.display = 'block';
         showMessage("Te voilà dans la cuisine !");
       } else if (room === 'Salon') {
         roomImage.src = 'Salon.jpg';
-        evier.style.display = 'none';
-        bouteille.style.display = 'none';
-        tablette.style.display = 'none';
-        plaques.style.display = 'none';
-        frigo.style.display = 'none';
-        canape.style.display = 'block';
+        document.getElementById('zones-salon').style.display = 'block';
         showMessage("Bienvenue dans le salon !");
       } else if (room === 'Coinmanger') {
-        evier.style.display = 'none';
-        bouteille.style.display = 'none';
-        tablette.style.display = 'none';
-        plaques.style.display = 'none';
-        frigo.style.display = 'none';
-        canape.style.display = 'none';
+        roomImage.src = 'Coinmanger.jpg';
         showMessage("Tu es dans le coin manger !");
       } else if (room === 'Biblio') {
         roomImage.src = 'Biblio.jpg';
-        evier.style.display = 'none';
-        bouteille.style.display = 'none';
-        tablette.style.display = 'none';
-        plaques.style.display = 'none';
-        frigo.style.display = 'none';
-        canape.style.display = 'none';
         showMessage("Tu explores la deuxième partie du salon !");
       } else if (room === 'Chambre') {
         roomImage.src = 'Chambre.jpg';
-        evier.style.display = 'none';
-        bouteille.style.display = 'none';
-        tablette.style.display = 'none';
-        plaques.style.display = 'none';
-        frigo.style.display = 'none';
-        canape.style.display = 'none';
         showMessage("Bienvenue dans la chambre !");
       } else if (room === 'Salledebain') {
         roomImage.src = 'Salledebain.jpg';
-        evier.style.display = 'none';
-        bouteille.style.display = 'none';
-        tablette.style.display = 'none';
-        plaques.style.display = 'none';
-        frigo.style.display = 'none';
-        canape.style.display = 'none';
         showMessage("C’est la salle de bain, attention de ne pas glisser !");
       }  
-    }
-    
-
-    // Nouvelle fonction : afficher une image de détail (ex. Chambre)
-    function showDetail(imageName) {
-      const roomImage = document.getElementById('room-image');
-      const evier = document.getElementById('evier');
-      const canape = document.getElementById('canape');
-      const retourBtn = document.getElementById('retour-btn');
-
-      roomImage.src = imageName;
-      evier.style.display = 'none';
-      canape.style.display = 'none';
-      retourBtn.style.display = 'inline-block';
-      showMessage("Tu es passé dans une autre pièce...");
     }
   </script>
 
