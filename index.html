@@ -84,6 +84,7 @@
     <div class="click-zone" id="frigo"
          style="top: 80%; left: 85%; width: 120px; height: 90px"
          onclick="showMessage('Le frigo est fermé, pas d\'indice')"></div> 
+  </div>
 
     <!-- Zones cliquables pour le salon -->
   <div id="zones-salon"> 
@@ -110,8 +111,6 @@
 
     function changeRoom(room) {
       const roomImage = document.getElementById('room-image');
-      const retourBtn = document.getElementById('retour-btn');
-
 
       // On cache toutes les zones à chaque changement
       document.getElementById('zones-cuisine').style.display = 'none';
