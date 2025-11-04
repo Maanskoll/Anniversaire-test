@@ -86,6 +86,7 @@
 
     
     <!-- Zones cliquables pour le salon -->
+  <div id="zones-salon">
     <div class="click-zone" id="canape"
          style="top: 70%; left: 30%; width: 150px; height: 60px; display: none;"
          onclick="showMessage('Le canapé est vide… mais tu peux t’y reposer !')"></div>
@@ -112,46 +113,46 @@
 
     function changeRoom(room) {
       const roomImage = document.getElementById('room-image');
-      const evier = document.getElementById('evier');
-      const canape = document.getElementById('canape');
       const retourBtn = document.getElementById('retour-btn');
+     
+      // On cache toutes les zones à chaque changement
+      document.getElementById('zones-cuisine').style.display = 'none';
+      document.getElementById('zones-salon').style.display = 'none';
+      document.getElementById('zones-coinmanger').style.display = 'none';
+      document.getElementById('zones-biblio').style.display = 'none';
+      document.getElementById('zones-chambre').style.display = 'none';
+      document.getElementById('zones-salledebain').style.display = 'none';
 
       currentRoom = room;
 
       if (room === 'Cuisine') {
         roomImage.src = 'Cuisine.jpg';
-        evier.style.display = 'block';
-        canape.style.display = 'none';
+        document.getElementById('zones-cuisine').style.display = 'block';
         retourBtn.style.display = 'none';
         showMessage("Te voilà dans la cuisine !");
       } else if (room === 'Salon') {
         roomImage.src = 'Salon.jpg';
-        evier.style.display = 'none';
-        canape.style.display = 'block';
+        document.getElementById('zones-salon').style.display = 'block';
         retourBtn.style.display = 'none';
         showMessage("Bienvenue dans le salon !");
       } else if (room === 'Coinmanger') {
         roomImage.src = 'Coinmanger.jpg';
-        evier.style.display = 'none';
-        canape.style.display = 'none';
+        document.getElementById('zones-coinmanger').style.display = 'block';
         retourBtn.style.display = 'none';
         showMessage("Tu es dans le coin manger !");
       } else if (room === 'Biblio') {
         roomImage.src = 'Biblio.jpg';
-        evier.style.display = 'none';
-        canape.style.display = 'none';
+        document.getElementById('zones-biblio').style.display = 'block';
         retourBtn.style.display = 'none';
         showMessage("Tu explores la deuxième partie du salon !");
       } else if (room === 'Chambre') {
         roomImage.src = 'Chambre.jpg';
-        evier.style.display = 'none';
-        canape.style.display = 'none';
+        document.getElementById('zones-chambre').style.display = 'block';
         retourBtn.style.display = 'none';
         showMessage("Bienvenue dans la chambre !");
       } else if (room === 'Salledebain') {
         roomImage.src = 'Salledebain.jpg';
-        evier.style.display = 'none';
-        canape.style.display = 'none';
+        document.getElementById('zones-salledebain').style.display = 'block';
         retourBtn.style.display = 'none';
         showMessage("C’est la salle de bain, attention de ne pas glisser !");
       }  
