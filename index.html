@@ -131,29 +131,25 @@
       } else if (room === 'Salon') {
         roomImage.src = 'Salon.jpg';
         evier.style.display = 'none';
-        bouteille.style.display = 'none';
-         frigo.style.display = 'none';
+        bouteille.style.display = 'block';
+        frigo.style.display = 'block';
         canape.style.display = 'block';
         retourBtn.style.display = 'none';
         showMessage("Bienvenue dans le salon !");
       } else if (room === 'Coinmanger') {
         roomImage.src = 'Coinmanger.jpg';
-        document.getElementById('zones-coinmanger').style.display = 'block';
         retourBtn.style.display = 'none';
         showMessage("Tu es dans le coin manger !");
       } else if (room === 'Biblio') {
         roomImage.src = 'Biblio.jpg';
-        document.getElementById('zones-biblio').style.display = 'block';
         retourBtn.style.display = 'none';
         showMessage("Tu explores la deuxième partie du salon !");
       } else if (room === 'Chambre') {
         roomImage.src = 'Chambre.jpg';
-        document.getElementById('zones-chambre').style.display = 'block';
         retourBtn.style.display = 'none';
         showMessage("Bienvenue dans la chambre !");
       } else if (room === 'Salledebain') {
         roomImage.src = 'Salledebain.jpg';
-        document.getElementById('zones-salledebain').style.display = 'block';
         retourBtn.style.display = 'none';
         showMessage("C’est la salle de bain, attention de ne pas glisser !");
       }  
