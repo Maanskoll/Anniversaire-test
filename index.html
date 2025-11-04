@@ -52,7 +52,6 @@
   </style>
 </head>
 <body>
-
   <h1>Jeu interactif - Appartement</h1>
 
   <div id="game-container">
@@ -84,15 +83,15 @@
          style="top: 80%; left: 85%; width: 120px; height: 90px"
          onclick="showMessage('Le frigo est fermé, pas d\'indice')"></div> 
 
-    
     <!-- Zones cliquables pour le salon -->
   <div id="zones-salon">
     <div class="click-zone" id="canape"
          style="top: 70%; left: 30%; width: 150px; height: 60px; display: none;"
          onclick="showMessage('Le canapé est vide… mais tu peux t’y reposer !')"></div>
   </div>
+ 
+  <div id="message-box">Clique sur un objet pour voir un message.</div>
 
-  <div id="message-box">Te voilà dans la cuisine !</div>  
   <div class="nav-buttons">
     <button onclick="changeRoom('Cuisine')">Cuisine</button>
     <button onclick="changeRoom('Coinmanger')">Coin manger</button>
@@ -100,7 +99,6 @@
     <button onclick="changeRoom('Biblio')">Biblio</button>
     <button onclick="changeRoom('Chambre')">Chambre</button>
     <button onclick="changeRoom('Salledebain')">Salle de bain</button>
-    <button id="retour-btn" style="display: none;" onclick="changeRoom('Salon')">Retour</button>
   </div>
 
   <script>
@@ -118,8 +116,7 @@
       const canape = document.getElementById('bouteille');
       const canape = document.getElementById('frigo');
       const evier = document.getElementById('canape');
-      const retourBtn = document.getElementById('retour-btn');
-     
+      
       // On cache toutes les zones à chaque changement
       currentRoom = room;
 
@@ -131,7 +128,6 @@
         plaques.style.display = 'block';
         frigo.style.display = 'block';
         canape.style.display = 'none';
-        retourBtn.style.display = 'none';
         showMessage("Te voilà dans la cuisine !");
       } else if (room === 'Salon') {
         roomImage.src = 'Salon.jpg';
@@ -141,7 +137,6 @@
         plaques.style.display = 'none';
         frigo.style.display = 'none';
         canape.style.display = 'block';
-        retourBtn.style.display = 'none';
         showMessage("Bienvenue dans le salon !");
       } else if (room === 'Coinmanger') {
         evier.style.display = 'none';
@@ -150,7 +145,6 @@
         plaques.style.display = 'none';
         frigo.style.display = 'none';
         canape.style.display = 'none';
-        retourBtn.style.display = 'none';
         showMessage("Tu es dans le coin manger !");
       } else if (room === 'Biblio') {
         roomImage.src = 'Biblio.jpg';
@@ -160,7 +154,6 @@
         plaques.style.display = 'none';
         frigo.style.display = 'none';
         canape.style.display = 'none';
-        retourBtn.style.display = 'none';
         showMessage("Tu explores la deuxième partie du salon !");
       } else if (room === 'Chambre') {
         roomImage.src = 'Chambre.jpg';
@@ -170,7 +163,6 @@
         plaques.style.display = 'none';
         frigo.style.display = 'none';
         canape.style.display = 'none';
-        retourBtn.style.display = 'none';
         showMessage("Bienvenue dans la chambre !");
       } else if (room === 'Salledebain') {
         roomImage.src = 'Salledebain.jpg';
@@ -180,33 +172,13 @@
         plaques.style.display = 'none';
         frigo.style.display = 'none';
         canape.style.display = 'none';
-        retourBtn.style.display = 'none';
         showMessage("C’est la salle de bain, attention de ne pas glisser !");
       }  
     }
     
 
     // Nouvelle fonction : afficher une image de détail (ex. Chambre)
-    function showDetail(imageName) {
-      const roomImage = document.getElementById('room-image');
-      const evier = document.getElementById('evier');
-      const canape = document.getElementById('canape');
-      const plaques = document.getElementById('plaques');
-      const bouteille = document.getElementById('bouteille');
-      const tablette = document.getElementById('tablette');
-      const frigo = document.getElementById('frigo');
-      const retourBtn = document.getElementById('retour-btn');
 
-      roomImage.src = imageName;
-      evier.style.display = 'none';
-      canape.style.display = 'none';
-      plaques.style.display = 'none';
-      bouteille.style.display = 'none';
-      tablette.style.display = 'none';
-      frigo.style.display = 'none';
-      retourBtn.style.display = 'inline-block';
-      showMessage("Tu es passé dans une autre pièce...");
-    }
   </script>
 
 </body>
