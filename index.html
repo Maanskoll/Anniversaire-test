@@ -84,19 +84,23 @@
       <div class="click-zone" id="frigo"
          style="top: 80%; left: 85%; width: 120px; height: 90px"
          onclick="showMessage('Le frigo est fermé, pas d\'indice')"></div> 
+  
+      <div class="click-zone" id="cafe"
+         style="top: 50%; left: 71%; width: 30px; height: 80px;"
+         onclick="showMessage('Ton café. Rien de caché dedans')"></div>
     </div>
 
     <!-- Zones cliquables pour le salon -->
-   <div id="zones-salon"> 
-     <div class="click-zone" id="canape"
+    <div id="zones-salon"> 
+      <div class="click-zone" id="canape"
          style="top: 45%; left: 35%; width: 200px; height: 65px"
          onclick="showMessage('Trop petit pour que tu puisses étaler confortablement ton corps')"></div>
 
-     <div class="click-zone" id="puzzle"
+      <div class="click-zone" id="puzzle"
          style="top: 65%; left: 40%; width: 150px; height: 65px"
          onclick="showMessage('Ta participation au premier puzzle')"></div>
      
-     <div class="click-zone" id="escape game"
+      <div class="click-zone" id="escape game"
          style="top: 85%; left: 35%; width: 50px; height: 60px"
          onclick="showMessage('Premier jeu ensemble. Bonne anecdote. Et si on recommençait ?')"></div>
 
@@ -104,29 +108,43 @@
          style="top: 75%; left: 15%; width: 130px; height: 110px"
          onclick="showMessage('Terrain de bagarre')"></div>
 
-     <div class="click-zone" id="pilate"
+      <div class="click-zone" id="pilate"
          style="top: 53%; left: 70%; width: 50px; height: 100px"
          onclick="showMessage('Ils recommençaient à prendre la poussière')"></div>
 
-     <div class="click-zone" id="casque de ski"
+      <div class="click-zone" id="casque de ski"
          style="top: 42%; left: 70%; width: 50px; height: 45px"
          onclick="showMessage('Ptdr il en a vu de la neige en 4k')"></div>
 
-     <div class="click-zone" id="radiateur"
+      <div class="click-zone" id="radiateur"
          style="top: 45%; left: 7%; width: 130px; height: 100px"
          onclick="showMessage('Utilisé à des rares occasions quand quelqu\'un à froid')"></div>
      
-     <div class="click-zone" id="fleur"
+      <div class="click-zone" id="fleur"
          style="top: 50%; left: 47%; width: 60px; height: 65px"
          onclick="showMessage('Tes fleurs toutes belles')"></div>
-     </div>
+    </div>
+
+    <!-- Zones cliquables pour la biblio -->
+      <div id="zones-biblio">
+        <div class="click-zone" id="Meuble"
+         style="top: 45%; left: 35%; width: 200px; height: 65px"
+         onclick="showMessage(' confortablement ton corps')"></div>
+
+         <div class="click-zone" id="Radia"
+         style="top: 45%; left: 35%; width: 200px; height: 65px"
+         onclick="showMessage(' confortablement ton corps')"></div>
+
+         <div class="click-zone" id="Tableau recettes"
+         style="top: 45%; left: 35%; width: 200px; height: 65px"
+         onclick="showMessage(' confortablement ton corps')"></div>
+      </div>    
   </div>
   
-  <div id="message-box">Voici la cuisine!.</div>
+  <div id="message-box"> Pour commencer clique sur une pièce. Ne clique pas directement sur l'image!!.</div>
   
   <div class="nav-buttons">
     <button onclick="changeRoom('Cuisine')">Cuisine</button>
-    <button onclick="changeRoom('Coinmanger')">Coin manger</button>
     <button onclick="changeRoom('Salon')">Salon</button>
     <button onclick="changeRoom('Biblio')">Biblio</button>
     <button onclick="changeRoom('Chambre')">Chambre</button>
@@ -146,6 +164,7 @@
       // On cache toutes les zones à chaque changement
       document.getElementById('zones-cuisine').style.display = 'none';
       document.getElementById('zones-salon').style.display = 'none';
+      document.getElementById('zones-biblio').style.display = 'none';
       // (tu ajouteras ici zones-coinmanger, zones-biblio, etc. quand tu les créeras)
       
       currentRoom = room;
@@ -158,12 +177,10 @@
         roomImage.src = 'Salon.jpg';
         document.getElementById('zones-salon').style.display = 'block';
         showMessage("Bienvenue dans le salon !");
-      } else if (room === 'Coinmanger') {
-        roomImage.src = 'Coinmanger.jpg';
-        showMessage("Tu es dans le coin manger !");
       } else if (room === 'Biblio') {
         roomImage.src = 'Biblio.jpg';
-        showMessage("Tu explores la deuxième partie du salon !");
+        document.getElementById('zones-biblio').style.display = 'block';
+        showMessage("Tu explores une autre partie du salon");
       } else if (room === 'Chambre') {
         roomImage.src = 'Chambre.jpg';
         showMessage("Bienvenue dans la chambre !");
