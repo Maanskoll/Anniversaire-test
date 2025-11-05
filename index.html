@@ -51,6 +51,19 @@
       padding: 8px 15px;
       cursor: pointer;
     }
+
+     #retour-btn {
+      display: none;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 8px 12px;
+      background: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -58,6 +71,9 @@
 
   <div id="game-container">
     <img id="room-image" src="Cuisine.jpg" alt="Pièce actuelle">
+
+    <!-- Bouton retour -->
+    <button id="retour-btn" onclick="retourSallon()">Retour</button>
 
     <!-- Zones cliquables pour la cuisine -->
     <div id="zones-cuisine">
@@ -97,8 +113,12 @@
          onclick="showMessage('Trop petit pour que tu puisses étaler confortablement ton corps')"></div>
 
       <div class="click-zone" id="puzzle"
-         style="top: 65%; left: 40%; width: 150px; height: 65px"
+         style="top: 65%; left: 45%; width: 150px; height: 65px"
          onclick="showMessage('Ta participation au premier puzzle')"></div>
+
+      <div class="click-zone" id="puzzlephoto"
+         style="top: 65%; left: 40%; width: 10px; height: 65px"
+         onclick="showDetail('Puzzle.jpg')"></div>
      
       <div class="click-zone" id="escape game"
          style="top: 85%; left: 35%; width: 50px; height: 60px"
@@ -236,6 +256,7 @@
 
     function changeRoom(room) {
       const roomImage = document.getElementById('room-image');
+      const retourBtn = document.getElementById('retour-btn');
 
       // On cache toutes les zones à chaque changement
       document.getElementById('zones-cuisine').style.display = 'none';
@@ -243,8 +264,9 @@
       document.getElementById('zones-biblio').style.display = 'none';
       document.getElementById('zones-chambre').style.display = 'none';
       document.getElementById('zones-salledebain').style.display = 'none';
-      // (tu ajouteras ici zones-coinmanger, zones-biblio, etc. quand tu les créeras)
+      // (tu ajouteras ici zones-biblio, etc. quand tu les créeras)
       
+      retourBtn.style.display = 'none';
       currentRoom = room;
 
       if (room === 'Cuisine') {
@@ -268,6 +290,22 @@
         document.getElementById('zones-salledebain').style.display = 'block';
         showMessage("Attention de ne pas glisser !");
       }  
+    }
+    // Afficher une image de détail (zoom ou scène spécifique)
+    function showDetail(imageName) {
+      const roomImage = document.getElementById('room-image');
+      const retourBtn = document.getElementById('retour-btn');
+     
+      roomImage.src = imageName;
+      retourBtn.style.display = 'block';
+      showMessage("Tu observes quelque chose de plus près...");
+    }
+
+    // Revenir à la pièce actuelle
+    function retourSalle() {
+      const retourBtn = document.getElementById('retour-btn');
+      retourBtn.style.display = 'none';
+      changeRoom(currentRoom);
     }
   </script>
 
