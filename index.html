@@ -191,10 +191,29 @@
          style="top: 68%; left: 4%; width: 59px; height: 60px"
          onclick="showMessage('Avec qui je partage mon lit toutes les semaines')"></div>
       </div>
+      <!-- Zones cliquables pour la salle de bain -->
+      <div id="salledebain">
+        <div class="click-zone" id="lavabo"
+         style="top: 68%; left: 4%; width: 59px; height: 60px"
+         onclick="showMessage('C\'est juste un lavabo, il n\'y a rien dedans...')"></div>
+
+        <div class="click-zone" id="machine à laver"
+         style="top: 68%; left: 4%; width: 59px; height: 60px"
+         onclick="showMessage('C\'EST INCROYABLE!')"></div>
+
+        <div class="click-zone" id="baignoire"
+         style="top: 68%; left: 4%; width: 59px; height: 60px"
+         onclick="showMessage('Elle me chuchote qu\'on ne prend pas notre douche assez souvent ensemble')"></div>
+
+        <div class="click-zone" id="gel douche"
+         style="top: 68%; left: 4%; width: 59px; height: 60px"
+         onclick="showMessage('T\'inquiète pas, ton gel douche est juste rangé')"></div>
+      </div>
   </div>
   
-  <div id="message-box"> Pour commencer clique IMPÉRATIVEMENT sur une pièce. Ne clique pas directement sur de garde l'image!! <br>
-    Même si tu veux aller dans la cuisine clique sur cuisine. </div>
+  <div id="message-box"> Pour commencer clique IMPÉRATIVEMENT sur une pièce (boutton en bas). Ne clique pas directement sur cette première image!! <br>
+    Même si tu veux aller dans la cuisine clique sur cuisine. <br>
+    Bonne promenade. </div>
   
   <div class="nav-buttons">
     <button onclick="changeRoom('Cuisine')">Cuisine</button>
@@ -219,6 +238,7 @@
       document.getElementById('zones-salon').style.display = 'none';
       document.getElementById('zones-biblio').style.display = 'none';
       document.getElementById('zones-chambre').style.display = 'none';
+      document.getElementById('zones-salledebain').style.display = 'none';
       // (tu ajouteras ici zones-coinmanger, zones-biblio, etc. quand tu les créeras)
       
       currentRoom = room;
@@ -238,10 +258,11 @@
       } else if (room === 'Chambre') {
         roomImage.src = 'Chambre.jpg';
         document.getElementById('zones-chambre').style.display = 'block';
-        showMessage("Bienvenue dans la chambre !");
+        showMessage("La petite chambre");
       } else if (room === 'Salledebain') {
         roomImage.src = 'Salledebain.jpg';
-        showMessage("C’est la salle de bain, attention de ne pas glisser !");
+        document.getElementById('zones-chambre').style.display = 'block';
+        showMessage("Attention de ne pas glisser !");
       }  
     }
   </script>
