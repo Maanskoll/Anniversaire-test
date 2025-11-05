@@ -72,9 +72,6 @@
   <div id="game-container">
     <img id="room-image" src="Cuisine.jpg" alt="Pièce actuelle">
 
-    <!-- Bouton retour -->
-    <button id="retour-btn" onclick="retourSallon()">Retour</button>
-
     <!-- Zones cliquables pour la cuisine -->
     <div id="zones-cuisine">
       <div class="click-zone" id="tablette"
@@ -256,7 +253,6 @@
 
     function changeRoom(room) {
       const roomImage = document.getElementById('room-image');
-      const retourBtn = document.getElementById('retour-btn');
 
       // On cache toutes les zones à chaque changement
       document.getElementById('zones-cuisine').style.display = 'none';
@@ -266,7 +262,6 @@
       document.getElementById('zones-salledebain').style.display = 'none';
       // (tu ajouteras ici zones-biblio, etc. quand tu les créeras)
       
-      retourBtn.style.display = 'none';
       currentRoom = room;
 
       if (room === 'Cuisine') {
@@ -290,22 +285,6 @@
         document.getElementById('zones-salledebain').style.display = 'block';
         showMessage("Attention de ne pas glisser !");
       }  
-    }
-    // Afficher une image de détail (zoom ou scène spécifique)
-    function showDetail(imageName) {
-      const roomImage = document.getElementById('room-image');
-      const retourBtn = document.getElementById('retour-btn');
-     
-      roomImage.src = imageName;
-      retourBtn.style.display = 'block';
-      showMessage("Tu observes quelque chose de plus près...");
-    }
-
-    // Revenir à la pièce actuelle
-    function retourSalle() {
-      const retourBtn = document.getElementById('retour-btn');
-      retourBtn.style.display = 'none';
-      changeRoom(currentRoom);
     }
   </script>
 
